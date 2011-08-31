@@ -38,9 +38,7 @@ SID=${SID/<\/SessionID>*/}
 
 test -z $SID && echo "Unable to login" && exit 1
 
-curl -k -A "$UA" -s "http://api.smugmug.com/services/api/rest/1.3.0/?method=smugmug.albums.get&SessionID=$SID&APIKey=$APIKEY&NickName=$NICKNAME"| sed -n '
-s/.*<Album id="\(.*\)">/\1/p
-' | sort -rn > $0.$$.tmp
+curl -k -A "$UA" -s "http://api.smugmug.com/services/api/rest/1.3.0/?method=smugmug.albums.get&SessionID=$SID&APIKey=$APIKEY&NickName=$NICKNAME"| | sed -n 's/\/Album/\n/pg' | sed -n 's/.*<Album id="\([0-9]*\)" Key="[0-9a-zA-Z]*" Title="\([a-zA-Z0-9& ]*\).*/\1 \2/pg' | sort -rn > $0.$$.tmp
 
 curl -k -s -o /dev/null -A "$UA" "https://api.smugmug.com/hack/rest/1.1.1/?method=smugmug.logout&SessionID=$SID&APIKey=$APIKEY"
 
