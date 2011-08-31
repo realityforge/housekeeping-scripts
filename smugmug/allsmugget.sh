@@ -46,7 +46,7 @@ cat $0.$$.tmp | while read ALBUM line
 do
 #    ln -s $ALBUM "$line"
     echo "Downloading $line ($ALBUM)"
-    ./smugget.sh -l -a $ALBUM -u $EMAIL -p $PASSWORD
+    `dirname $0`/smugget.sh -l -a $ALBUM -u $EMAIL -p $PASSWORD
 done
 
 rm $0.$$.tmp
