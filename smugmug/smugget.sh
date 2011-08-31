@@ -4,15 +4,6 @@
 # Additional modifications by Robert Krawitz
 # Downloads SmugMug albums
 
-function download_image
-{
-  echo "Downloading $albumid/$filename ($md5sum)"
-  if [ $LOG -eq 1 ]; then
-    echo "Downloading $albumid/$filename ($md5sum)" >> smugget.log
-  fi
-  curl -s -o $albumid/$filename $url
-}
-
 which curl >  /dev/null
 test $? -gt 0 && echo "Curl is not on the path" && exit 1
 
@@ -124,14 +115,13 @@ do
     if [ ! -d $albumid ]; then
 	mkdir $albumid
     fi
-    if [ ! -f "$albumid/$filename" ]; then
-        download_image
-        continue
-    fi
-    
     export FILE_SIZE=`stat -c%s $albumid/$filename`
-    if [ $FILE_SIZE != size ]; then
-	download_image
+    if [ $FILE_SIZE != $size ]; then
+  		echo "Downloading $albumid/$filename ($size)"
+  		if [ $LOG -eq 1 ]; then
+    		echo "Downloading $albumid/$filename ($size)" >> smugget.log
+  		fi
+  		curl -s -o $albumid/$filename $url
         continue
     fi
     # Size matches, don't download
