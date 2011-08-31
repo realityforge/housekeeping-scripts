@@ -50,3 +50,5 @@ do
     echo "Downloading $line ($ALBUM)"
     ./smugget.sh -l -a $ALBUM -u $EMAIL -p $PASSWORD
 done
+
+rm $0.$$.tmp
