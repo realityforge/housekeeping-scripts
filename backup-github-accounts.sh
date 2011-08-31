@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Add the following to crontab
+# 0 0 * * * /home/pdonald/housekeeping-scripts/backup-github-accounts.sh
+
 for ACCOUNT in realityforge stocksoftware; do
 
   export ACCOUNT_LOCATION="$HOME/Backups/github/$ACCOUNT"
