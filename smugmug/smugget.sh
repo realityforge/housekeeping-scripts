@@ -15,8 +15,6 @@ function download_image
 
 which curl >  /dev/null
 test $? -gt 0 && echo "Curl is not on the path" && exit 1
-which md5sum >  /dev/null
-test $? -gt 0 && echo "MD5Sum is not on the path" && exit 1
 
 test -f ~/.smugup && source ~/.smugup
 
@@ -137,9 +135,8 @@ do
         continue
     fi
     # Size matches, don't download
-    #echo "Skipping $albumid/$filename ($md5sum)"
     if [ $LOG -eq 1 ]; then
-        echo "Skipping $albumid/$filename ($md5sum)" >> smugget.log
+        echo "Skipping $albumid/$filename ($size)" >> smugget.log
     fi
 done
 rm -f $TMPFILE
