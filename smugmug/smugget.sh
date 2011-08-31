@@ -95,7 +95,7 @@ N
 s/\n/\*/g
 s/sm-//g
 s/-sm//g
-p' | while read albumid filename size url
+p' | while read albumid filename url size
 do
     # If a blank filename is returned it's probably a video
     # or something else I don't know how to handle
@@ -115,11 +115,11 @@ do
     if [ ! -d $albumid ]; then
 	mkdir $albumid
     fi
-    export FILE_SIZE=`stat -c%s $albumid/$filename`
-    if [ $FILE_SIZE != $size ]; then
+    export FILE_SIZE=`stat -c%s $albumid/$filename 2> /dev/null`
+    if [ "$FILE_SIZE" != $size ]; then
   		echo "Downloading $albumid/$filename ($size)"
   		if [ $LOG -eq 1 ]; then
-    		echo "Downloading $albumid/$filename ($size)" >> smugget.log
+    			echo "Downloading $albumid/$filename ($size)" >> smugget.log
   		fi
   		curl -s -o $albumid/$filename $url
         continue
