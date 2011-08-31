@@ -5,6 +5,8 @@ export SS_REPOS=`curl --silent  https://api.github.com/users/stocksoftware/repos
 
 export REPO_LIST="$RF_REPOS $SS_REPOS"
 
+cd ~/Backups/github
+
 for REPO in $REPO_LIST; do
 	echo "Backing up $REPO"
     rm -rf `basename $REPO`
