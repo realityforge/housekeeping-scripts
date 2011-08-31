@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # Original by http://braindump.dk/tech/2007/10/03/smugmug-uploader/
 # Modified by Jesse DeFer http://www.dotd.com/smugget/
 # Additional modifications by Robert Krawitz
@@ -98,7 +98,7 @@ curl -k -s -A "$UA" "https://api.smugmug.com/hack/rest/1.1.1/?method=smugmug.ima
     s/.*<Album id="\(.*\)" \/>/\1/p
     s/.*<FileName>\(.*\)<\/FileName>/\1/p
     s/.*<FileName \/>/none/p
-    s/.*<MD5Sum>\(.*\)<\/MD5Sum>/\1/p
+    s/.*<Size>\(.*\)<\/Size>/\1/p
     s/.*<OriginalURL>\(.*\)<\/OriginalURL>/\1/p
 }' | sed -n 'N
 N
@@ -106,7 +106,7 @@ N
 s/\n/\*/g
 s/sm-//g
 s/-sm//g
-p' | while read albumid filename md5sum url
+p' | while read albumid filename size url
 do
     # If a blank filename is returned it's probably a video
     # or something else I don't know how to handle
@@ -130,13 +130,13 @@ do
         download_image
         continue
     fi
-    echo "$md5sum  $albumid/$filename" > $TMPFILE
-    md5sum -c $TMPFILE > /dev/null
-    if [ $? -eq 1 ]; then
+    
+    export FILE_SIZE=`stat -c%s $albumid/$filename`
+    if [ $FILE_SIZE != size ]; then
 	download_image
         continue
     fi
-    # MD5Sum matches, don't download
+    # Size matches, don't download
     #echo "Skipping $albumid/$filename ($md5sum)"
     if [ $LOG -eq 1 ]; then
         echo "Skipping $albumid/$filename ($md5sum)" >> smugget.log

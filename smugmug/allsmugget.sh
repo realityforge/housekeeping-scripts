@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # Original by http://braindump.dk/tech/2007/10/03/smugmug-uploader/
 # Modified by Jesse DeFer http://www.dotd.com/smugget/
 # Downloads all Albums in an account

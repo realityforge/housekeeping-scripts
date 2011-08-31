@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # Created by Jesse DeFer http://www.dotd.com/smugget/
 # run albums.sh to create albums.list first
 

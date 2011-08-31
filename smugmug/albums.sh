@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # Inspired by http://braindump.dk/tech/2007/10/03/smugmug-uploader/
 # Created by Jesse DeFer http://www.dotd.com/smugget/
 # creates a mapping of AlbumID to Category/SubCat/Album Name from your gallery
