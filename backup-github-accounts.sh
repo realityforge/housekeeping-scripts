@@ -2,7 +2,7 @@
 
 for ACCOUNT in realityforge stocksoftware; do
 
-  export ACCOUNT_LOCATION="~/Backups/github/$ACCOUNT"
+  export ACCOUNT_LOCATION="$HOME/Backups/github/$ACCOUNT"
 
   export REPO_LIST=`curl --silent  https://api.github.com/users/$ACCOUNT/repos | grep git_url | tr ',"' ' ' | awk '{print $3}' | xargs echo`
 
