@@ -115,13 +115,13 @@ do
     if [ ! -d $albumid ]; then
 	mkdir $albumid
     fi
-    export FILE_SIZE=`stat -c%s $albumid/$filename 2> /dev/null`
+    export FILE_SIZE=`stat -c%s "$albumid/$filename" 2> /dev/null`
     if [ "$FILE_SIZE" != $size ]; then
   		echo "Downloading $albumid/$filename ($size)"
   		if [ $LOG -eq 1 ]; then
     			echo "Downloading $albumid/$filename ($size)" >> smugget.log
   		fi
-  		curl -s -o $albumid/$filename $url
+        curl -s -o "$albumid/$filename" $url
         continue
     fi
     # Size matches, don't download
