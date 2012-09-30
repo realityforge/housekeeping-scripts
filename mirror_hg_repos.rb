@@ -8,6 +8,8 @@ hg_to_clone = {
   "artemis-esf/gamadu-spaceship-warrior" => "https://code.google.com/p/spaceship-warrior",
   "artemis-esf/piemaster-artemoids" => "https://bitbucket.org/piemaster/artemoids",
   "artemis-esf/piemaster-jario" => "https://bitbucket.org/piemaster/jario",
+  "artemis-esf/apollo-entity-framework" => "https://code.google.com/p/apollo-entity-framework/",
+  "artemis-esf/apollo-warrior" => "https://code.google.com/p/apollo-warrior/",
 }
 
 BASE_DIR=`pwd`.strip
