@@ -14,7 +14,7 @@ BASE_DIR=`pwd`.strip
 
 def sh(command)
   system command
-  raise "Failed to execute command #{command} with exit #{$?}" if $?.to_s != "0"
+  raise "Failed to execute command #{command} with exit #{$?}" if $?.to_i.to_s != "0"
 end
 
 hg_to_clone.each_pair do |target, source|
