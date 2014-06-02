@@ -33,5 +33,5 @@ hg_to_clone.each_pair do |target, source|
 
   target = "git+ssh://git@github.com/#{target}.git"
   puts "Pushing directory #{directory} to git repository #{target}."
-  sh "hg push #{target}"
+  sh "hg push #{target} | grep 'pushing to git+ssh'"
 end
