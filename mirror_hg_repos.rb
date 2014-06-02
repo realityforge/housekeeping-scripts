@@ -10,6 +10,8 @@ hg_to_clone = {
   "artemis-esf/piemaster-artemoids" => "https://bitbucket.org/piemaster/artemoids",
   "artemis-esf/piemaster-jario" => "https://bitbucket.org/piemaster/jario",
   "realityforge-experiments/vmstats" => "https://bitbucket.org/timconradinc/vmstats",
+  "artemis-esf/apollo-entity-framework" => "https://code.google.com/p/apollo-entity-framework/",
+  "artemis-esf/apollo-warrior" => "https://code.google.com/p/apollo-warrior/",
 }
 
 BASE_DIR=File.dirname(__FILE__) + "/repositories"
