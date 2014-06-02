@@ -12,7 +12,7 @@ hg_to_clone = {
   "realityforge-experiments/vmstats" => "https://bitbucket.org/timconradinc/vmstats",
 }
 
-BASE_DIR=`pwd`.strip
+BASE_DIR=File.dirname(__FILE__) + "/repositories"
 
 def sh(command)
   system command
