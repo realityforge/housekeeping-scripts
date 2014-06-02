@@ -2,12 +2,14 @@
 # sudo easy_install hg-git
 
 hg_to_clone = {
+  "artemis-esf/quake2-gwt-port" => "https://code.google.com/p/quake2-gwt-port",
   "artemis-esf/artemis-framework" => "https://code.google.com/p/artemis-framework",
   "artemis-esf/gamadu-starwarrior" => "https://code.google.com/p/gamadu-starwarrior",
   "artemis-esf/gamadu-tankz" => "https://code.google.com/p/gamadu-tankz",
   "artemis-esf/gamadu-spaceship-warrior" => "https://code.google.com/p/spaceship-warrior",
   "artemis-esf/piemaster-artemoids" => "https://bitbucket.org/piemaster/artemoids",
   "artemis-esf/piemaster-jario" => "https://bitbucket.org/piemaster/jario",
+  "realityforge-experiments/vmstats" => "https://bitbucket.org/timconradinc/vmstats",
 }
 
 BASE_DIR=`pwd`.strip
