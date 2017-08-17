@@ -106,7 +106,7 @@ do
     if [ $filename == "none" ]; then
         echo "Skipping unnamed file in album $albumid"
         continue
-    fi 
+    fi
     # Sanity check since sed is a poor XML parser
     if [ $ALBUM -ne $albumid ]; then
         echo "Album IDs don't match, possible XML parsing error"
