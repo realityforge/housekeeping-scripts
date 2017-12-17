@@ -1,7 +1,9 @@
 # DO NOT EDIT: File is auto-generated
 * -text
+*.md text
 *.rb text
 *.sh text
 *.sh text eol=lf
 *.txt text
+.gitattributes text
 .gitignore text
